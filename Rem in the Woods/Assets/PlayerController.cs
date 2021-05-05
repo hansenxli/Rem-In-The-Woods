@@ -7,7 +7,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-
     [SerializeField] Transform playerCamera = null;
     [SerializeField] float mouseSensitivity = 2f;
     [SerializeField] float walkSpeed = 6f;
@@ -17,9 +16,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] bool lockCursor = true;
 
+    public Vector3 jump = new Vector3(0.0f, 2.0f, 0.0f);
+    [SerializeField] public bool isGrounded;
+    public Rigidbody rb;
+    public float jumpForce = 10.0f;
+
     float cameraPitch = 0.0f;
     float velocityY = 0.0f;
     CharacterController controller = null;
+
 
     Vector2 currentDir = Vector2.zero;
     Vector2 currentDirVelocity = Vector2.zero;
@@ -30,6 +35,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        rb = GetComponent<Rigidbody>();
 
         controller = GetComponent<CharacterController>();
         if (lockCursor)
@@ -40,11 +47,33 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+        }
+        
         UpdateMouseLook();
         UpdateMovement();
+
     }
 
 

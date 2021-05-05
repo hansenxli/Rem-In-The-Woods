@@ -800,27 +800,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ce2e7614defce488c58a6b07731a26, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ce2e7614defce488c58a6b07731a26, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ce2e7614defce488c58a6b07731a26, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ce2e7614defce488c58a6b07731a26, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 801.32
+      value: 782.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ce2e7614defce488c58a6b07731a26, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 144.49
+      value: 148.81
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ce2e7614defce488c58a6b07731a26, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 817.31
+      value: 727.16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ce2e7614defce488c58a6b07731a26, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1007,6 +1007,10 @@ MonoBehaviour:
   moveSmoothTime: 0.3
   mouseSmoothTime: 0.03
   lockCursor: 1
+  jump: {x: 0, y: 0, z: 0}
+  isGrounded: 0
+  rb: {fileID: 0}
+  jumpForce: 2
 --- !u!54 &1543265982
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1360,7 +1364,7 @@ GameObject:
   - component: {fileID: 1802825026}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
